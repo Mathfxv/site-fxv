@@ -1,7 +1,10 @@
 document.querySelectorAll('form.form').forEach(function (form) {
   var page = form.querySelector('input[name="Page"]');
   var names = { '/': 'Accueil', '/remise-en-forme': 'Remise en forme', '/athletes': 'Athlètes', '/coaching-en-ligne': 'Coaching en ligne' };
-  if (page) page.value = 'Page ' + (names[location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/'] || location.pathname);
+  var path = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  if (page) page.value = path.indexOf('/blogue') === 0
+    ? 'Blogue : ' + document.title.split(' | ')[0]
+    : 'Page ' + (names[path] || path);
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var ok = Array.prototype.every.call(form.querySelectorAll('input[required]'), function (el) { return el.value.trim() !== ''; });

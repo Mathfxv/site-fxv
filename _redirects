@@ -10,6 +10,26 @@
 # Article retiré
 /blogs/supplements/tout-savoir-sur-le-tb-500-effets-utilisation-et-precautions   /   301
 
+# Blogue : anciens articles Shopify vers le nouveau blogue
+/blogs/entrainement/comment-creer-son-propre-plan-dentrainement-partie-1-de-2   /blogue/creer-son-plan-d-entrainement-partie-1   301
+/blogs/entrainement/comment-creer-son-propre-plan-dentrainement-partie-2-de-2   /blogue/creer-son-plan-d-entrainement-partie-2   301
+/blogs/entrainement/quest-ce-que-le-german-volume-training   /blogue/german-volume-training   301
+/blogs/entrainement/reps-in-reserve-optimisez-votre-entrainement-avec-cette-strategie-de-gestion-de-leffort   /blogue/reps-in-reserve   301
+/blogs/entrainement/comprendre-et-utiliser-le-rpe-a-lentrainement-lart-de-la-perception-de-leffort   /blogue/rpe-perception-de-l-effort   301
+/blogs/entrainement/entrainement-isometrique-contre-les-pins-developpez-force-et-stabilite   /blogue/entrainement-isometrique-pins   301
+/blogs/entrainement/mtor-pathway-et-entrainement-le-guide-complet-pour-maximiser-votre-croissance-musculaire   /blogue/voie-mtor-croissance-musculaire   301
+/blogs/news/lentrainement-en-hypertrophie-pour-la-perte-de-gras   /blogue/hypertrophie-perte-de-gras   301
+/blogs/news/genetique-et-composition-corporelle-demystification-des-mythes-et-realites   /blogue/genetique-composition-corporelle   301
+/blogs/nutrition/pourquoi-les-proteines-sont-elles-si-importantes-pour-lentrainement-en-musculation   /blogue/proteines-musculation   301
+/blogs/nutrition/5-avantages-pour-la-sante-du-jeune-intermittent-comment-le-jeune-intermittent-peut-vous-aider-a-atteindre-vos-objectifs   /blogue/jeune-intermittent   301
+/blogs/news/le-cycle-menstruel-et-lalimentation-comment-sadapter-aux-variations-hormonales   /blogue/cycle-menstruel-alimentation   301
+/blogs/nutrition/4-raisons-pourquoi-la-diete-cetogene-pourrait-etre-une-bonne-alternative   /blogue/   301
+/blogs/nutrition/intolerances-alimentaires-causes-consequences-et-principales-intolerances   /blogue/   301
+/blogs/news/le-microbiote-intestinal-et-le-cerveau-letonnante-connexion-exploree   /blogue/   301
+/blogs/entrainement   /blogue/   301
+/blogs/nutrition   /blogue/   301
+/blogs/news   /blogue/   301
+
 # Tout ce qui est boutique : vers boutique.fxvsolution.com, même adresse
 /products/*      https://boutique.fxvsolution.com/products/:splat      301
 /collections/*   https://boutique.fxvsolution.com/collections/:splat   301
