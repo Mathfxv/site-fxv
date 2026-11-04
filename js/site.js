@@ -28,3 +28,17 @@ document.querySelectorAll('form.form').forEach(function (form) {
       });
   });
 });
+
+(function () {
+  var btn = document.querySelector('.menu-btn');
+  var nav = document.getElementById('menu-mobile');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
