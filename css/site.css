@@ -350,3 +350,10 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 @media (min-width: 760px) and (max-width: 959px) { .site-header .btn + .menu-btn { margin-left: .5rem; } }
 @media (min-width: 960px) { .menu-btn { display: none; } }
 @media (prefers-reduced-motion: reduce) { .menu-btn span { transition: none; } }
+.post-card a { padding: 0; overflow: hidden; }
+.post-card__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.post-card__cat { padding: 1.25rem 1.5rem 0; }
+.post-card__title, .post-card__desc { padding: 0 1.5rem; }
+.post-card__meta { padding: .4rem 1.5rem 1.5rem; }
+.post__hero { margin: 2rem 0 0; }
+.post__hero img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: var(--radius); display: block; }
