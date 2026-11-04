@@ -357,3 +357,14 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .post-card__meta { padding: .4rem 1.5rem 1.5rem; }
 .post__hero { margin: 2rem 0 0; }
 .post__hero img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: var(--radius); display: block; }
+
+/* Bandeau de témoins */
+.temoins { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 50; max-width: 40rem; margin-inline: auto;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(15,23,51,.18); padding: 1.1rem 1.25rem; display: grid; gap: .9rem; font-size: .95rem; }
+.temoins p { margin: 0; }
+.temoins a { color: var(--navy); text-decoration: underline; }
+.temoins__actions { display: flex; gap: .6rem; justify-content: flex-end; flex-wrap: wrap; }
+.temoins .btn-light { border: 1px solid var(--navy); }
+.temoins[hidden] { display: none; }
+.lien-temoins { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
