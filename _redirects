@@ -1,0 +1,22 @@
+# Redirections pour Netlify (fxvsolution.com, après le changement)
+# Anciennes pages de coaching Shopify vers le nouveau site
+/pages/confidentialite            /confidentialite         301
+/pages/nos-services               /remise-en-forme         301
+/pages/nos-produits-et-services   /remise-en-forme         301
+/pages/a-propos-de-nous           /#equipe                 301
+/pages/temoignages-1              /#avis                   301
+/pages/nous-joindre               /#reserver               301
+
+# Article retiré
+/blogs/supplements/tout-savoir-sur-le-tb-500-effets-utilisation-et-precautions   /   301
+
+# Tout ce qui est boutique : vers boutique.fxvsolution.com, même adresse
+/products/*      https://boutique.fxvsolution.com/products/:splat      301
+/collections/*   https://boutique.fxvsolution.com/collections/:splat   301
+/blogs/*         https://boutique.fxvsolution.com/blogs/:splat         301
+/policies/*      https://boutique.fxvsolution.com/policies/:splat      301
+/cart            https://boutique.fxvsolution.com/cart                 301
+/cart/*          https://boutique.fxvsolution.com/cart/:splat          301
+/account         https://boutique.fxvsolution.com/account              301
+/account/*       https://boutique.fxvsolution.com/account/:splat       301
+/search          https://boutique.fxvsolution.com/search               301
