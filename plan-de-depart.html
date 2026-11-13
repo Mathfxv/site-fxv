@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ton plan de départ | FxV Solution</title>
+<link rel="icon" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#002d6e;--dark:#100a44;--mid:#36619b;--blue:#123977;--light:#e8eef7;--grey:#5a6475;--line:#d4ddeb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Nunito Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--dark);background:#f5f7fb;line-height:1.5}
+  header{background:var(--navy);color:#fff;padding:32px 20px 40px}
+  .wrap{max-width:720px;margin:0 auto}
+  .brand{font-weight:700;letter-spacing:.12em;font-size:.8rem;opacity:.85}
+  h1,h2,.big,.val{font-family:Archivo,"Nunito Sans",sans-serif}
+  .logo{height:44px;display:block;margin-bottom:10px}
+  h1{font-size:2rem;margin:.4em 0 .2em;line-height:1.15}
+  header p{margin:0;opacity:.9;font-size:1.05rem}
+  main{padding:0 20px 48px}
+  .card{background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,45,110,.08);padding:24px;margin-top:-20px;margin-bottom:28px}
+  .card + .card{margin-top:0}
+  h2{font-size:1.25rem;margin:0 0 .6em;color:var(--navy)}
+  label{display:block;font-weight:600;font-size:.95rem;margin:16px 0 6px}
+  .hint{font-weight:400;color:var(--grey);font-size:.85rem}
+  input,select{width:100%;padding:12px 14px;font-size:1rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--dark)}
+  input:focus,select:focus{outline:none;border-color:var(--mid)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  button{margin-top:22px;width:100%;padding:15px;font-size:1.05rem;font-weight:700;border:0;border-radius:10px;background:var(--navy);color:#fff;cursor:pointer}
+  button:hover{background:var(--blue)}
+  .err{color:#b42318;font-size:.9rem;margin-top:10px;display:none}
+  #result{display:none}
+  .big{font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1.1;margin:.1em 0}
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px}
+  .kpi{background:var(--light);border-radius:12px;padding:16px}
+  .kpi .lab{font-size:.85rem;color:var(--grey)}
+  .kpi .val{font-size:1.5rem;font-weight:800;color:var(--navy)}
+  table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:8px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--grey);font-weight:600;font-size:.85rem}
+  td:last-child{font-weight:700;color:var(--navy);white-space:nowrap}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+  .day{border-radius:10px;padding:10px 4px;text-align:center;font-size:.8rem;background:var(--light);color:var(--grey);min-height:76px}
+  .day b{display:block;color:var(--dark);font-size:.85rem;margin-bottom:4px}
+  .day.on{background:var(--navy);color:#fff}
+  .day.on b{color:#fff}
+  .note{font-size:.85rem;color:var(--grey);margin-top:12px}
+  .cta{background:var(--navy);color:#fff}
+  .cta h2{color:#fff}
+  .cta a{display:inline-block;margin:10px 10px 0 0;padding:12px 18px;border-radius:10px;background:#fff;color:var(--navy);font-weight:700;text-decoration:none}
+  .actions{display:flex;gap:10px}
+  .actions button{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+  footer{text-align:center;color:var(--grey);font-size:.8rem;padding:20px}
+  footer em{display:block;color:var(--navy);font-size:.95rem;margin-bottom:6px}
+  @media (max-width:520px){.row,.kpis{grid-template-columns:1fr}.week{grid-template-columns:repeat(4,1fr)}h1{font-size:1.6rem}.big{font-size:1.8rem}}
+  @media print{header{padding:16px}#form,.actions,.noprint{display:none!important}.card{box-shadow:none;margin:0 0 12px;break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="/"><img class="logo" src="/img/logo-blanc-240.png" alt="FxV Solution"></a>
+  <h1>Ton plan de départ</h1>
+  <p>Quelques réponses, 30 secondes. Tu repars avec ton échéancier, tes calories, tes protéines et ta cible de pas.</p>
+</div></header>
+
+<main><div class="wrap">
+
+<section class="card" id="form">
+  <h2>Parle-moi de toi</h2>
+  <label for="prenom">Ton prénom <span class="hint">(facultatif)</span></label>
+  <input id="prenom" type="text" autocomplete="given-name">
+  <div class="row">
+    <div><label for="poids">Poids actuel <span class="hint">(lb)</span></label><input id="poids" type="number" inputmode="decimal" min="80" max="600"></div>
+    <div><label for="vise">Poids visé <span class="hint">(lb)</span></label><input id="vise" type="number" inputmode="decimal" min="80" max="600"></div>
+  </div>
+  <div class="row">
+    <div><label for="sexe">Sexe</label><select id="sexe"><option value="f">Femme</option><option value="h">Homme</option></select></div>
+    <div><label for="age">Âge</label><input id="age" type="number" inputmode="numeric" min="16" max="90"></div>
+  </div>
+  <div class="row">
+    <div><label for="pieds">Taille <span class="hint">(pieds)</span></label><input id="pieds" type="number" inputmode="numeric" min="4" max="7"></div>
+    <div><label for="pouces">&nbsp;<span class="hint">(pouces)</span></label><input id="pouces" type="number" inputmode="numeric" min="0" max="11" value="0"></div>
+  </div>
+  <label for="pas">Tes pas par jour, en moyenne <span class="hint">(regarde ton téléphone ou ta montre)</span></label>
+  <select id="pas"><option value="1.2">Moins de 5 000 pas</option><option value="1.375" selected>5 000 à 7 500 pas</option><option value="1.55">7 500 à 10 000 pas</option><option value="1.725">Plus de 10 000 pas</option></select>
+  <label for="repas">Repas par jour</label>
+  <select id="repas"><option value="3">3 repas</option><option value="4" selected>3 repas + 1 collation</option><option value="5">3 repas + 2 collations</option></select>
+  <button type="button" onclick="calculer()">Voir mon plan</button>
+  <div class="err" id="err"></div>
+  <p class="note">Rien de ce que tu inscris ici n'est envoyé ni conservé : le calcul se fait dans ton navigateur.</p>
+</section>
+
+<div id="result">
+  <section class="card">
+    <h2 id="titreEch">Ton échéancier réaliste</h2>
+    <div id="echeancier"></div>
+    <p class="note">Calculé à un rythme de 0,5 % de ton poids par semaine : assez pour voir des résultats, assez doux pour les garder. Ces chiffres sont volontairement conservateurs. Avec un entraînement adapté à ton corps et un suivi régulier, les choses bougent souvent plus vite, surtout du côté de la composition corporelle : moins de gras, plus de muscle, même quand la balance avance lentement.</p>
+  </section>
+
+  <section class="card">
+    <h2>Tes calories</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="lab">Ta dépense estimée par jour</div><div class="val" id="tdee"></div></div>
+      <div class="kpi"><div class="lab">Ta cible par jour</div><div class="val" id="cible"></div></div>
+    </div>
+    <p id="calTxt"></p>
+    <p class="note">Ta dépense est estimée à partir de ton âge, ta taille, ton poids et tes pas. C'est un point de départ : un coach l'ajuste ensuite selon ce que ton corps fait réellement.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ta cible de protéines</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="lab">Par jour</div><div class="val" id="protJour"></div></div>
+      <div class="kpi"><div class="lab">Portions de 30 g</div><div class="val" id="protPortions"></div></div>
+    </div>
+    <p id="protRepas"></p>
+    <h2 style="margin-top:18px">30 g de protéines, ça ressemble à quoi?</h2>
+    <table>
+      <thead><tr><th>Aliment</th><th>Pour 30 g de protéines</th></tr></thead>
+      <tbody>
+        <tr><td>Poitrine de poulet cuite</td><td>95 g</td></tr>
+        <tr><td>Poitrine de dinde cuite</td><td>105 g</td></tr>
+        <tr><td>Bœuf haché extra-maigre cuit</td><td>110 g</td></tr>
+        <tr><td>Filet de porc cuit</td><td>115 g</td></tr>
+        <tr><td>Saumon cuit</td><td>120 g</td></tr>
+        <tr><td>Thon en conserve dans l'eau, égoutté</td><td>120 g</td></tr>
+        <tr><td>Crevettes cuites</td><td>125 g</td></tr>
+        <tr><td>Poisson blanc cuit (morue, tilapia)</td><td>130 g</td></tr>
+        <tr><td>Œufs entiers (gros)</td><td>5 œufs</td></tr>
+        <tr><td>Blancs d'œufs liquides</td><td>275 ml</td></tr>
+        <tr><td>Fromage cottage 1 %</td><td>250 g (1 tasse)</td></tr>
+        <tr><td>Skyr nature</td><td>275 g</td></tr>
+        <tr><td>Yogourt grec 0 %</td><td>300 g</td></tr>
+        <tr><td>Isolat de protéine de lactosérum</td><td>±1 mesure</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Valeurs approximatives. Pour les produits emballés, l'étiquette fait foi.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ton mouvement</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="lab">Tes pas aujourd'hui</div><div class="val" id="pasAct"></div></div>
+      <div class="kpi"><div class="lab">Ta prochaine cible</div><div class="val" id="pasCible"></div></div>
+    </div>
+    <p>Ajoute environ 2 000 pas par jour à ta moyenne actuelle, pendant 2 semaines, avant d'en viser plus. Et tes entraînements, mets-les à l'horaire comme un rendez-vous client : on ne se demande pas si on y va.</p>
+  </section>
+
+  <section class="card cta">
+    <h2>Ce plan, c'est le point de départ</h2>
+    <p>Les chiffres, tu les as maintenant. Ce qui fera la différence, c'est l'exécution semaine après semaine, avec un plan d'entraînement fait pour ton corps et quelqu'un qui te garde sur ta trajectoire.</p>
+    <p><strong>Ton bilan de suivi est gratuit.</strong> Reviens d'ici 30 jours refaire ton bilan VisBody : on regarde ensemble ce qui a bougé, et ce qui doit changer.</p>
+    <a href="mailto:info@fxvsolution.com?subject=Mon%20bilan%20de%20suivi">Réserver par courriel</a>
+  </section>
+
+  <div class="actions noprint">
+    <button type="button" onclick="window.print()">Enregistrer en PDF</button>
+    <button type="button" onclick="recommencer()">Modifier mes réponses</button>
+  </div>
+  <p class="note">Ce plan est une estimation générale. Il ne remplace pas l'avis d'un professionnel de la santé. Si tu as une condition médicale ou prends une médication, parles-en à ton médecin.</p>
+</div>
+
+</div></main>
+
+<footer><em>Bâtis qui tu es, le résultat suivra.</em>FxV Solution · 1381, rue King Est, Sherbrooke · 819 434-2143</footer>
+
+<script>
+function fmtDate(d){return d.toLocaleDateString('fr-CA',{day:'numeric',month:'long',year:'numeric'});}
+function calculer(){
+  var err=document.getElementById('err');err.style.display='none';
+  var p=parseFloat(document.getElementById('poids').value),v=parseFloat(document.getElementById('vise').value);
+  var age=parseInt(document.getElementById('age').value,10),pi=parseInt(document.getElementById('pieds').value,10),po=parseInt(document.getElementById('pouces').value||'0',10);
+  if(!(p>=80&&p<=600)||!(v>=80&&v<=600)){err.textContent='Inscris ton poids actuel et ton poids visé en livres (entre 80 et 600).';err.style.display='block';return;}
+  if(!(age>=16&&age<=90)||!(pi>=4&&pi<=7)||!(po>=0&&po<=11)){err.textContent='Inscris ton âge et ta taille (pieds et pouces).';err.style.display='block';return;}
+  var prenom=document.getElementById('prenom').value.trim(),sexe=document.getElementById('sexe').value,fact=parseFloat(document.getElementById('pas').value),repas=parseInt(document.getElementById('repas').value,10);
+  document.getElementById('titreEch').textContent=prenom?prenom+', voici ton échéancier réaliste':'Ton échéancier réaliste';
+  // calories (Mifflin-St Jeor)
+  var kg=p*0.4536,cm=(pi*12+po)*2.54;
+  var bmr=10*kg+6.25*cm-5*age+(sexe==='h'?5:-161);
+  var tdee=Math.round(bmr*fact/10)*10;
+  var plancher=sexe==='h'?1500:1200,cible,calTxt,lent=false;
+  if(v>=p){cible=tdee;calTxt='Comme ton objectif est la recomposition, on vise ta dépense : assez d\'énergie pour bâtir du muscle pendant que le gras diminue.';}
+  else{
+    var deficit=Math.round(p*0.005*3500/7);
+    var maxDef=Math.round(tdee*0.25);
+    if(deficit>maxDef){deficit=maxDef;lent=true;}
+    cible=tdee-deficit;
+    if(cible<plancher){cible=plancher;lent=true;}
+    cible=Math.round(cible/50)*50;
+    calTxt='Environ <strong>'+(tdee-cible)+' calories de moins</strong> que ta dépense chaque jour. '+(lent?'On a gardé une marge de sécurité : à cette cible, ton rythme sera un peu plus lent que l\'échéancier ci-dessus, et c\'est très bien ainsi.':'C\'est ce qui correspond au rythme de 0,5 % par semaine.');
+  }
+  document.getElementById('tdee').textContent=tdee.toLocaleString('fr-CA')+' cal';
+  document.getElementById('cible').textContent=cible.toLocaleString('fr-CA')+' cal';
+  document.getElementById('calTxt').innerHTML=calTxt;
+  // échéancier
+  var ech=document.getElementById('echeancier'),w16=p*Math.pow(0.995,16);
+  if(v>=p){
+    ech.innerHTML='<p class="big">Objectif : recomposition</p><p>Ton poids visé n\'est pas plus bas que ton poids actuel. Dans ton cas, la balance n\'est pas le bon juge : on mesure plutôt ce qui change dans ta composition corporelle (gras et muscle) avec le VisBody.</p>';
+  }else{
+    var w=p,s=0;while(w>v&&s<260){w*=0.995;s++;}
+    var d=new Date();d.setDate(d.getDate()+s*7);var mois=Math.round(s/4.345);
+    ech.innerHTML='<p>À un rythme sain, tu peux atteindre <strong>'+Math.round(v)+' lb</strong> en environ</p><p class="big">'+s+' semaines</p><p>soit autour du <strong>'+fmtDate(d)+'</strong>'+(mois>=2?' (environ '+mois+' mois)':'')+'.</p><div class="kpis"><div class="kpi"><div class="lab">Après 4 semaines</div><div class="val">'+Math.round(p*Math.pow(0.995,4))+' lb</div></div><div class="kpi"><div class="lab">Après 16 semaines</div><div class="val">'+Math.round(Math.max(w16,v))+' lb</div></div></div>';
+  }
+  // protéines
+  var lo=Math.round(p*0.8),hi=Math.round(p);
+  document.getElementById('protJour').textContent=lo+' à '+hi+' g';
+  var pl=Math.round(lo/30),ph=Math.round(hi/30);
+  document.getElementById('protPortions').textContent=(pl===ph?pl:pl+' à '+ph);
+  var parRepas=Math.round(((lo+hi)/2)/repas/5)*5;
+  var nomsRepas={3:'tes 3 repas',4:'tes 3 repas et ta collation',5:'tes 3 repas et tes 2 collations'};
+  document.getElementById('protRepas').innerHTML='Réparti sur '+nomsRepas[repas]+', ça fait environ <strong>'+parRepas+' g par repas</strong>. Le plus simple : une source de protéines de la liste ci-dessous à chaque repas, en commençant par le repas du matin, souvent le plus faible.';
+  // pas
+  var pasMap={'1.2':['Moins de 5 000','6 000'],'1.375':['5 000 à 7 500','8 500'],'1.55':['7 500 à 10 000','11 000'],'1.725':['Plus de 10 000','Garde-le']};
+  var pm=pasMap[document.getElementById('pas').value];
+  document.getElementById('pasAct').textContent=pm[0];document.getElementById('pasCible').textContent=pm[1];
+  document.getElementById('form').style.display='none';
+  document.getElementById('result').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+}
+function recommencer(){document.getElementById('result').style.display='none';document.getElementById('form').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
