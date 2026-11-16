@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ton profil d'athlète | FxV Solution</title>
+<link rel="icon" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#002d6e;--dark:#100a44;--mid:#36619b;--blue:#123977;--light:#e8eef7;--grey:#5a6475;--line:#d4ddeb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Nunito Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--dark);background:#f5f7fb;line-height:1.5}
+  header{background:var(--navy);color:#fff;padding:32px 20px 40px}
+  .wrap{max-width:720px;margin:0 auto}
+  .brand{font-weight:700;letter-spacing:.12em;font-size:.8rem;opacity:.85}
+  h1,h2,.big,.val{font-family:Archivo,"Nunito Sans",sans-serif}
+  .logo{height:44px;display:block;margin-bottom:10px}
+  h1{font-size:2rem;margin:.4em 0 .2em;line-height:1.15}
+  header p{margin:0;opacity:.9;font-size:1.05rem}
+  main{padding:0 20px 48px}
+  .card{background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,45,110,.08);padding:24px;margin-top:-20px;margin-bottom:28px}
+  .card + .card{margin-top:0}
+  h2{font-size:1.25rem;margin:0 0 .6em;color:var(--navy)}
+  label{display:block;font-weight:600;font-size:.95rem;margin:16px 0 6px}
+  .hint{font-weight:400;color:var(--grey);font-size:.85rem}
+  input,select{width:100%;padding:12px 14px;font-size:1rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--dark)}
+  input:focus,select:focus{outline:none;border-color:var(--mid)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  button{margin-top:22px;width:100%;padding:15px;font-size:1.05rem;font-weight:700;border:0;border-radius:10px;background:var(--navy);color:#fff;cursor:pointer}
+  button:hover{background:var(--blue)}
+  .err{color:#b42318;font-size:.9rem;margin-top:10px;display:none}
+  #result{display:none}
+  .big{font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1.1;margin:.1em 0}
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px}
+  .kpi{background:var(--light);border-radius:12px;padding:16px}
+  .kpi .lab{font-size:.85rem;color:var(--grey)}
+  .kpi .val{font-size:1.5rem;font-weight:800;color:var(--navy)}
+  table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:8px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--grey);font-weight:600;font-size:.85rem}
+  td:last-child{font-weight:700;color:var(--navy);white-space:nowrap}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+  .day{border-radius:10px;padding:10px 4px;text-align:center;font-size:.8rem;background:var(--light);color:var(--grey);min-height:76px}
+  .day b{display:block;color:var(--dark);font-size:.85rem;margin-bottom:4px}
+  .day.on{background:var(--navy);color:#fff}
+  .day.on b{color:#fff}
+  .note{font-size:.85rem;color:var(--grey);margin-top:12px}
+  .cta{background:var(--navy);color:#fff}
+  .cta h2{color:#fff}
+  .cta a{display:inline-block;margin:10px 10px 0 0;padding:12px 18px;border-radius:10px;background:#fff;color:var(--navy);font-weight:700;text-decoration:none}
+  .actions{display:flex;gap:10px}
+  .actions button{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+  footer{text-align:center;color:var(--grey);font-size:.8rem;padding:20px}
+  footer em{display:block;color:var(--navy);font-size:.95rem;margin-bottom:6px}
+  @media (max-width:520px){.row,.kpis{grid-template-columns:1fr}.week{grid-template-columns:repeat(4,1fr)}h1{font-size:1.6rem}.big{font-size:1.8rem}}
+  @media print{header{padding:16px}#form,.actions,.noprint{display:none!important}.card{box-shadow:none;margin:0 0 12px;break-inside:avoid}body{background:#fff}}
+
+  .q{border-top:1px solid var(--line);padding:16px 0}
+  .q p{margin:0 0 10px;font-weight:600}
+  .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .scale button{margin:0;padding:10px 0;font-size:.95rem;background:#fff;color:var(--navy);border:1.5px solid var(--line);border-radius:8px}
+  .scale button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .scale-lab{display:flex;justify-content:space-between;font-size:.75rem;color:var(--grey);margin-top:4px}
+  .grp{font-family:Archivo,sans-serif;color:var(--mid);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin-top:22px}
+  .tri{width:100%;max-width:520px;display:block;margin:0 auto}
+  .legend{display:flex;gap:18px;justify-content:center;font-size:.85rem;color:var(--grey);margin-top:6px}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .cmp{width:100%;border-collapse:collapse;margin-top:10px}
+  .prio{background:var(--light);border-radius:12px;padding:14px 16px;margin-top:10px}
+  .prio b{display:block;color:var(--navy);font-family:Archivo,sans-serif}
+  .bar{height:8px;background:var(--light);border-radius:4px;overflow:hidden}
+  .bar span{display:block;height:100%;background:var(--mid)}
+  .sq{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;font-size:.88rem;margin:6px 0}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="/"><img class="logo" src="/img/logo-blanc-240.png" alt="FxV Solution"></a>
+  <h1>Ton profil d'athlète</h1>
+  <p>Trois minutes pour voir où tu te situes entre la force, la vitesse et l'endurance, et ce que ta position demande vraiment.</p>
+</div></header>
+
+<main><div class="wrap">
+
+<section class="card" id="form">
+  <h2>Ton sport</h2>
+  <p class="hint">Parent? Répondez pour votre athlète, ou faites-le ensemble.</p>
+  <label for="prenom">Prénom de l'athlète <span class="hint">(facultatif)</span></label>
+  <input id="prenom" type="text" autocomplete="given-name">
+  <div class="row">
+    <div><label for="sport">Sport</label>
+      <select id="sport" onchange="majPositions()">
+        <option value="">Choisir…</option>
+        <option value="hockey">Hockey</option>
+        <option value="football">Football</option>
+        <option value="baseball">Baseball</option>
+        <option value="combat">Sport de combat</option>
+        <option value="autre">Autre sport</option>
+      </select></div>
+    <div id="blocPos"><label for="pos" id="labPos">Position</label><select id="pos"></select></div>
+  </div>
+
+  <h2 style="margin-top:26px">Tes forces</h2>
+  <p class="hint">Pour chaque énoncé : 1 = pas du tout moi, 5 = tout à fait moi. Sois honnête : c'est ce qui rend le résultat utile.</p>
+  <div id="questions"></div>
+
+  <button type="button" onclick="calculer()">Voir mon profil</button>
+  <div class="err" id="err"></div>
+  <p class="note">Rien de ce que tu inscris ici n'est envoyé ni conservé : le calcul se fait dans ton navigateur.</p>
+</section>
+
+<div id="result">
+  <section class="card">
+    <h2 id="titre">Ton profil</h2>
+    <svg class="tri" viewBox="0 0 520 420" id="tri"></svg>
+    <div class="legend"><span><span class="dot" style="background:#e4572e"></span>Toi</span><span><span class="dot" style="background:var(--navy)"></span><span id="legCible">Ta cible</span></span></div>
+    <table class="cmp">
+      <thead><tr><th></th><th>Toi</th><th>Ta cible</th></tr></thead>
+      <tbody id="cmp"></tbody>
+    </table>
+    <p id="ecart" style="margin-top:14px"></p>
+  </section>
+
+  <section class="card">
+    <h2>Tes 3 priorités</h2>
+    <div id="prios"></div>
+    <p class="note">Ce sont des directions générales. Le dosage (charges, volume, progression) se bâtit avec un coach, selon ton âge, ta saison et ton historique de blessures.</p>
+  </section>
+
+  <section class="card">
+    <h2>Tes 11 qualités en détail</h2>
+    <div id="detail"></div>
+  </section>
+
+  <section class="card cta">
+    <h2>Passe de l'estimation aux vrais chiffres</h2>
+    <p>Ce profil repose sur tes impressions. En salle, nos kinésiologues mesurent ta force, tes sauts et tes sprints, et te placent précisément dans le triangle. On bâtit ensuite ton plan à partir de là.</p>
+    <p>Pour réserver ta rencontre, appelle-nous ou écris-nous.</p>
+    <a href="tel:+18194342143">819 434-2143</a>
+    <a href="mailto:info@fxvsolution.com?subject=Mon%20profil%20d'athl%C3%A8te">Écrire un courriel</a>
+  </section>
+
+  <div class="actions noprint">
+    <button type="button" onclick="window.print()">Enregistrer en PDF</button>
+    <button type="button" onclick="recommencer()">Modifier mes réponses</button>
+  </div>
+  <p class="note">Ce profil est une estimation générale. Il ne remplace pas une évaluation en personne ni l'avis d'un professionnel de la santé.</p>
+</div>
+
+</div></main>
+
+<footer><em>Bâtis qui tu es, le résultat suivra.</em>FxV Solution · 1381, rue King Est, Sherbrooke · 819 434-2143</footer>
+
+<script>
+// Cibles [force, vitesse, endurance] par sport et position
+var CIBLES={
+  hockey:{lab:'Position',pos:{'Attaquant':[30,42,28],'Défenseur':[35,35,30],'Gardien':[25,55,20]}},
+  football:{lab:'Position',pos:{'Joueur de ligne':[60,30,10],'Secondeur, porteur, ailier rapproché':[45,45,10],'Receveur, demi défensif':[30,60,10],'Quart-arrière':[35,55,10]}},
+  baseball:{lab:'Position',pos:{'Lanceur':[35,40,25],'Receveur':[45,40,15],'Avant-champ':[30,60,10],'Voltigeur':[25,65,10]}},
+  combat:{lab:'Style',pos:{'Frappe (boxe, kickboxing, muay-thaï)':[30,35,35],'Préhension (lutte, judo, jiu-jitsu)':[45,15,40],'Arts martiaux mixtes':[35,25,40]}},
+  autre:{lab:null,pos:{'':[33.3,33.3,33.4]}}
+};
+// Qualités : groupe, énoncé, poids [F,V,E], conseil
+var Q=[
+ {id:'fa',grp:'Force-vitesse',nom:'Force absolue',txt:'Dans les mouvements lourds (squat, soulevé de terre), je suis parmi les plus forts de mon équipe.',w:[1,0,0],c:'Bâtir ta force maximale : mouvements de base lourds (squat, soulevé de terre, développé), peu de répétitions, technique impeccable.'},
+ {id:'fd',grp:'Force-vitesse',nom:'Force de départ',txt:'Je démarre très vite à partir de l\'arrêt complet : premier pas, premier coup de patin, sortie de position.',w:[.75,.25,0],c:'Démarrer plus fort : départs arrêtés, poussées de traîneau, sauts à partir d\'une position immobile.'},
+ {id:'fr',grp:'Force-vitesse',nom:'Force réactive',txt:'Je rebondis vite : mes sauts enchaînés et mes changements de direction sont vifs.',w:[.5,.5,0],c:'Rebondir plus vite : pliométrie progressive (sauts enchaînés, bonds), toujours avec une réception contrôlée.'},
+ {id:'ac',grp:'Force-vitesse',nom:'Accélération',txt:'Sur les 10 premiers mètres, je gagne souvent mes courses.',w:[.25,.75,0],c:'Gagner les premiers pas : sprints de 5 à 20 m, départs variés, récupération complète entre chaque.'},
+ {id:'vm',grp:'Force-vitesse',nom:'Vitesse maximale',txt:'Sur une longue distance (30 m et plus), presque personne ne me rattrape une fois ma vitesse atteinte.',w:[0,1,0],c:'Augmenter ta vitesse de pointe : sprints lancés de 20 à 40 m et travail de mécanique de course.'},
+ {id:'rl',grp:'Force-endurance',nom:'Force relative',txt:'Pour mon poids, je suis fort : tractions, pompes et exercices au poids du corps me sont faciles.',w:[.67,0,.33],c:'Améliorer ton rapport force-poids : exercices au poids du corps exigeants et force sans prise de masse inutile.'},
+ {id:'hy',grp:'Force-endurance',nom:'Hypertrophie',txt:'Je prends facilement de la masse musculaire, et mon gabarit est un atout dans mon sport.',w:[.33,0,.67],c:'Bâtir de la masse utile : séries de 6 à 12 répétitions et une alimentation qui suit.'},
+ {id:'em',grp:'Force-endurance',nom:'Endurance musculaire',txt:'Je peux répéter un effort exigeant longtemps (beaucoup de répétitions, corps-à-corps prolongé) sans perdre ma force.',w:[0,0,1],c:'Tenir l\'effort plus longtemps : circuits, séries plus longues et repos plus courts.'},
+ {id:'al',grp:'Vitesse-endurance',nom:'Anaérobie alactique',txt:'Je suis à mon meilleur sur des efforts très courts et très intenses, de moins de 10 secondes.',w:[0,.75,.25],c:'Exploser sur les efforts courts : efforts maximaux de 5 à 10 secondes avec de longues pauses.'},
+ {id:'la',grp:'Vitesse-endurance',nom:'Anaérobie lactique',txt:'Je garde mon intensité jusqu\'à la fin d\'une présence, d\'une ronde ou d\'une série de sprints, même quand les jambes brûlent.',w:[0,.4,.6],c:'Tenir l\'intensité : intervalles de 20 à 60 secondes avec des pauses incomplètes.'},
+ {id:'ae',grp:'Vitesse-endurance',nom:'Aérobie',txt:'Je récupère vite entre les efforts et j\'ai encore de l\'énergie en fin de match.',w:[0,0,1],c:'Mieux récupérer entre les efforts : bâtir ta base cardio (intervalles longs, effort modéré prolongé).'}
+];
+var REP={};
+(function(){
+  var h='',g='';
+  Q.forEach(function(q){
+    if(q.grp!==g){g=q.grp;h+='<div class="grp">'+g+'</div>';}
+    h+='<div class="q"><p>'+q.txt+'</p><div class="scale" data-q="'+q.id+'">';
+    for(var i=1;i<=5;i++)h+='<button type="button" onclick="choisir(\''+q.id+'\','+i+',this)">'+i+'</button>';
+    h+='</div><div class="scale-lab"><span>Pas du tout moi</span><span>Tout à fait moi</span></div></div>';
+  });
+  document.getElementById('questions').innerHTML=h;
+})();
+function choisir(id,v,el){REP[id]=v;el.parentNode.querySelectorAll('button').forEach(function(b){b.classList.remove('on');});el.classList.add('on');}
+function majPositions(){
+  var s=document.getElementById('sport').value,b=document.getElementById('blocPos'),p=document.getElementById('pos');
+  if(!s||!CIBLES[s].lab){b.style.display='none';p.innerHTML='';return;}
+  b.style.display='block';document.getElementById('labPos').textContent=CIBLES[s].lab;
+  p.innerHTML='<option value="">Choisir…</option>'+Object.keys(CIBLES[s].pos).map(function(k){return '<option>'+k+'</option>';}).join('');
+}
+majPositions();
+var A={E:[260,40],F:[40,380],V:[480,380]};
+function pt(f,v,e){var t=f+v+e;f/=t;v/=t;e/=t;return [f*A.F[0]+v*A.V[0]+e*A.E[0],f*A.F[1]+v*A.V[1]+e*A.E[1]];}
+function calculer(){
+  var err=document.getElementById('err');err.style.display='none';
+  var s=document.getElementById('sport').value,p=document.getElementById('pos').value;
+  if(!s||(CIBLES[s].lab&&!p)){err.textContent='Choisis ton sport et ta position.';err.style.display='block';return;}
+  var manque=Q.filter(function(q){return !REP[q.id];}).length;
+  if(manque){err.textContent='Il reste '+manque+' énoncé'+(manque>1?'s':'')+' à répondre.';err.style.display='block';return;}
+  var cible=CIBLES[s].pos[CIBLES[s].lab?p:''];
+  // score par coin : moyenne pondérée (1 à 5), puis accentuée
+  var sum=[0,0,0],w=[0,0,0];
+  Q.forEach(function(q){for(var i=0;i<3;i++){sum[i]+=REP[q.id]*q.w[i];w[i]+=q.w[i];}});
+  var raw=sum.map(function(x,i){var m=x/w[i]-1;return Math.pow(Math.max(m,0)+.2,2);});
+  var tot=raw[0]+raw[1]+raw[2],moi=raw.map(function(x){return Math.round(x/tot*100);});
+  moi[2]=100-moi[0]-moi[1];
+  var prenom=document.getElementById('prenom').value.trim();
+  document.getElementById('titre').textContent=prenom?'Le profil de '+prenom:'Ton profil';
+  document.getElementById('legCible').textContent='Cible : '+(CIBLES[s].lab?p:'sport polyvalent');
+  // triangle
+  var pm=pt(moi[0],moi[1],moi[2]),pc=pt(cible[0],cible[1],cible[2]);
+  var svg='<polygon points="260,40 40,380 480,380" fill="#e8eef7" stroke="#36619b" stroke-width="1.5"/>'+
+    '<text x="260" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#002d6e">Endurance</text>'+
+    '<text x="40" y="404" text-anchor="middle" font-size="15" font-weight="700" fill="#002d6e">Force</text>'+
+    '<text x="480" y="404" text-anchor="middle" font-size="15" font-weight="700" fill="#002d6e">Vitesse</text>'+
+    '<text x="260" y="404" text-anchor="middle" font-size="12" fill="#5a6475">force-vitesse</text>'+
+    '<text x="132" y="205" text-anchor="end" font-size="12" fill="#5a6475">force-endurance</text>'+
+    '<text x="388" y="205" text-anchor="start" font-size="12" fill="#5a6475">vitesse-endurance</text>';
+  var dx=pc[0]-pm[0],dy=pc[1]-pm[1],d=Math.sqrt(dx*dx+dy*dy);
+  if(d>18){var ex=pc[0]-dx/d*12,ey=pc[1]-dy/d*12;
+    svg+='<defs><marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#e4572e" stroke-width="1.6"/></marker></defs>'+
+    '<line x1="'+pm[0]+'" y1="'+pm[1]+'" x2="'+ex+'" y2="'+ey+'" stroke="#e4572e" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#m)"/>';}
+  svg+='<circle cx="'+pc[0]+'" cy="'+pc[1]+'" r="9" fill="#002d6e"/><circle cx="'+pm[0]+'" cy="'+pm[1]+'" r="9" fill="#e4572e"/>';
+  document.getElementById('tri').innerHTML=svg;
+  var noms=['Force','Vitesse','Endurance'];
+  document.getElementById('cmp').innerHTML=noms.map(function(n,i){return '<tr><td>'+n+'</td><td>'+moi[i]+' %</td><td>'+Math.round(cible[i])+' %</td></tr>';}).join('');
+  // écart principal
+  var diff=cible.map(function(c,i){return c-moi[i];}),k=diff.indexOf(Math.max.apply(null,diff));
+  var phr;
+  if(diff[k]<6){phr='<strong>Ton profil colle déjà bien à ce que ta position demande.</strong> Le gain viendra maintenant de tes qualités les plus faibles, ci-dessous.';k=-1;}
+  else phr='<strong>Ta position demande plus de '+noms[k].toLowerCase()+' que ton profil actuel</strong> (environ '+Math.round(diff[k])+' points d\'écart). C\'est là que se trouve ton plus gros levier.';
+  document.getElementById('ecart').innerHTML=phr;
+  // priorités
+  var cand=Q.filter(function(q){return k<0||q.w[k]>=.5;}).slice().sort(function(a,b){return REP[a.id]-REP[b.id]||(k<0?0:b.w[k]-a.w[k]);});
+  document.getElementById('prios').innerHTML=cand.slice(0,3).map(function(q){return '<div class="prio"><b>'+q.nom+'</b>'+q.c+'</div>';}).join('');
+  document.getElementById('detail').innerHTML=Q.map(function(q){return '<div class="sq"><span>'+q.nom+'</span><div class="bar"><span style="width:'+(REP[q.id]*20)+'%"></span></div></div>';}).join('');
+  document.getElementById('form').style.display='none';document.getElementById('result').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+}
+function recommencer(){document.getElementById('result').style.display='none';document.getElementById('form').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
