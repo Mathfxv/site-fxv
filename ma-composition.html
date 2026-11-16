@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ta composition corporelle | FxV Solution</title>
+<link rel="icon" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#002d6e;--dark:#100a44;--mid:#36619b;--blue:#123977;--light:#e8eef7;--grey:#5a6475;--line:#d4ddeb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Nunito Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--dark);background:#f5f7fb;line-height:1.5}
+  header{background:var(--navy);color:#fff;padding:32px 20px 40px}
+  .wrap{max-width:720px;margin:0 auto}
+  .brand{font-weight:700;letter-spacing:.12em;font-size:.8rem;opacity:.85}
+  h1,h2,.big,.val{font-family:Archivo,"Nunito Sans",sans-serif}
+  .logo{height:44px;display:block;margin-bottom:10px}
+  h1{font-size:2rem;margin:.4em 0 .2em;line-height:1.15}
+  header p{margin:0;opacity:.9;font-size:1.05rem}
+  main{padding:0 20px 48px}
+  .card{background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,45,110,.08);padding:24px;margin-top:-20px;margin-bottom:28px}
+  .card + .card{margin-top:0}
+  h2{font-size:1.25rem;margin:0 0 .6em;color:var(--navy)}
+  label{display:block;font-weight:600;font-size:.95rem;margin:16px 0 6px}
+  .hint{font-weight:400;color:var(--grey);font-size:.85rem}
+  input,select{width:100%;padding:12px 14px;font-size:1rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--dark)}
+  input:focus,select:focus{outline:none;border-color:var(--mid)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  button{margin-top:22px;width:100%;padding:15px;font-size:1.05rem;font-weight:700;border:0;border-radius:10px;background:var(--navy);color:#fff;cursor:pointer}
+  button:hover{background:var(--blue)}
+  .err{color:#b42318;font-size:.9rem;margin-top:10px;display:none}
+  #result{display:none}
+  .big{font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1.1;margin:.1em 0}
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px}
+  .kpi{background:var(--light);border-radius:12px;padding:16px}
+  .kpi .lab{font-size:.85rem;color:var(--grey)}
+  .kpi .val{font-size:1.5rem;font-weight:800;color:var(--navy)}
+  table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:8px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--grey);font-weight:600;font-size:.85rem}
+  td:last-child{font-weight:700;color:var(--navy);white-space:nowrap}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+  .day{border-radius:10px;padding:10px 4px;text-align:center;font-size:.8rem;background:var(--light);color:var(--grey);min-height:76px}
+  .day b{display:block;color:var(--dark);font-size:.85rem;margin-bottom:4px}
+  .day.on{background:var(--navy);color:#fff}
+  .day.on b{color:#fff}
+  .note{font-size:.85rem;color:var(--grey);margin-top:12px}
+  .cta{background:var(--navy);color:#fff}
+  .cta h2{color:#fff}
+  .cta a{display:inline-block;margin:10px 10px 0 0;padding:12px 18px;border-radius:10px;background:#fff;color:var(--navy);font-weight:700;text-decoration:none}
+  .actions{display:flex;gap:10px}
+  .actions button{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+  footer{text-align:center;color:var(--grey);font-size:.8rem;padding:20px}
+  footer em{display:block;color:var(--navy);font-size:.95rem;margin-bottom:6px}
+  @media (max-width:520px){.row,.kpis{grid-template-columns:1fr}.week{grid-template-columns:repeat(4,1fr)}h1{font-size:1.6rem}.big{font-size:1.8rem}}
+  @media print{header{padding:16px}#form,.actions,.noprint{display:none!important}.card{box-shadow:none;margin:0 0 12px;break-inside:avoid}body{background:#fff}}
+
+  .steps{margin:8px 0 0;padding-left:20px}
+  .steps li{margin:6px 0}
+  .bar{position:relative;display:flex;height:14px;margin:30px 0 6px}
+  .bar span:first-child{border-radius:7px 0 0 7px}.bar span:nth-child(5){border-radius:0 7px 7px 0}
+  .bar span{flex:1}
+  .z1{background:#9fb6d6}.z2{background:#5b86bf}.z3{background:#123977}.z4{background:#36619b}.z5{background:#7d8aa3}
+  .marker{position:absolute;top:-22px;transform:translateX(-50%);font-size:.8rem;font-weight:700;color:var(--navy);white-space:nowrap}
+  .marker:after{content:"";display:block;width:2px;height:30px;background:var(--dark);margin:2px auto 0}
+  .zones{display:grid;grid-template-columns:repeat(5,1fr);font-size:.72rem;color:var(--grey);text-align:center;gap:2px}
+  .unit{display:flex;gap:8px;margin-top:6px}
+  .unit label{margin:0;font-weight:600;display:flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer}
+  .unit input{width:auto}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="/"><img class="logo" src="/img/logo-blanc-240.png" alt="FxV Solution"></a>
+  <h1>Ce que la balance ne te dit pas</h1>
+  <p>Un ruban à mesurer, deux minutes. Tu obtiens une estimation de ton pourcentage de gras, de ta masse grasse et de ta masse maigre.</p>
+</div></header>
+
+<main><div class="wrap">
+
+<section class="card" id="form">
+  <h2>Prends tes mesures</h2>
+  <p>Utilise un ruban à mesurer souple, directement sur la peau, sans serrer. Prends chaque mesure deux fois et garde la moyenne.</p>
+  <ol class="steps">
+    <li><strong>Cou</strong> : juste sous la pomme d'Adam, le ruban légèrement incliné vers l'avant.</li>
+    <li><strong>Tour de taille</strong> : pour un homme, à la hauteur du nombril; pour une femme, à l'endroit le plus étroit. Expire normalement, sans rentrer le ventre.</li>
+    <li><strong>Hanches</strong> (femmes seulement) : à l'endroit le plus large des fesses, pieds joints.</li>
+  </ol>
+
+  <label for="prenom">Ton prénom <span class="hint">(facultatif)</span></label>
+  <input id="prenom" type="text" autocomplete="given-name">
+  <div class="row">
+    <div><label for="sexe">Sexe</label><select id="sexe" onchange="majHanches()"><option value="f">Femme</option><option value="h">Homme</option></select></div>
+    <div><label for="poids">Poids <span class="hint">(lb)</span></label><input id="poids" type="number" inputmode="decimal" min="80" max="600"></div>
+  </div>
+  <div class="row">
+    <div><label for="pieds">Taille <span class="hint">(pieds)</span></label><input id="pieds" type="number" inputmode="numeric" min="4" max="7"></div>
+    <div><label for="pouces">&nbsp;<span class="hint">(pouces)</span></label><input id="pouces" type="number" inputmode="numeric" min="0" max="11" value="0"></div>
+  </div>
+  <label>Tes mesures sont en</label>
+  <div class="unit">
+    <label><input type="radio" name="u" value="po" checked> pouces</label>
+    <label><input type="radio" name="u" value="cm"> centimètres</label>
+  </div>
+  <div class="row">
+    <div><label for="cou">Cou</label><input id="cou" type="number" inputmode="decimal" step="0.1"></div>
+    <div><label for="taille">Tour de taille</label><input id="taille" type="number" inputmode="decimal" step="0.1"></div>
+  </div>
+  <div id="blocHanches"><label for="hanches">Hanches</label><input id="hanches" type="number" inputmode="decimal" step="0.1"></div>
+  <button type="button" onclick="calculer()">Voir mon estimation</button>
+  <div class="err" id="err"></div>
+  <p class="note">Rien de ce que tu inscris ici n'est envoyé ni conservé : le calcul se fait dans ton navigateur.</p>
+</section>
+
+<div id="result">
+  <section class="card">
+    <h2 id="titre">Ton estimation</h2>
+    <p>Ton pourcentage de gras estimé :</p>
+    <p class="big" id="pct"></p>
+    <div class="bar" id="bar"><span class="z1"></span><span class="z2"></span><span class="z3"></span><span class="z4"></span><span class="z5"></span><div class="marker" id="marker">Toi</div></div>
+    <div class="zones" id="zones"></div>
+    <p id="zoneTxt"></p>
+    <div class="kpis">
+      <div class="kpi"><div class="lab">Masse grasse</div><div class="val" id="gras"></div></div>
+      <div class="kpi"><div class="lab">Masse maigre <span class="hint">(muscles, os, organes, eau)</span></div><div class="val" id="maigre"></div></div>
+    </div>
+    <p class="note">Estimation par la méthode de la marine américaine (US Navy), à partir de tes mesures. Elle est utile pour suivre une tendance, mais sa marge d'erreur est de 3 à 4 points de pourcentage, parfois plus.</p>
+  </section>
+
+  <section class="card">
+    <h2>Pourquoi c'est plus utile que la balance</h2>
+    <p id="exemple"></p>
+    <p>C'est pour ça qu'on ne juge jamais une progression au poids seul. Deux personnes au même poids peuvent avoir un corps, une énergie et une santé complètement différents.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ce que ton ruban ne peut pas voir</h2>
+    <p>Ton estimation te donne un ordre de grandeur. Le bilan VisBody, lui, mesure :</p>
+    <ul class="steps">
+      <li>ton pourcentage de gras réel, sans l'approximation des mesures;</li>
+      <li>ta masse musculaire, bras par bras et jambe par jambe;</li>
+      <li>ton gras viscéral, celui autour des organes, qui pèse le plus sur la santé;</li>
+      <li>ta posture et les déséquilibres qui peuvent freiner ton entraînement.</li>
+    </ul>
+  </section>
+
+  <section class="card cta">
+    <h2>Viens chercher ton vrai chiffre</h2>
+    <p><strong>Ton bilan VisBody est gratuit.</strong> On le fait ensemble lors de ta rencontre, et on regarde ce que tes résultats veulent dire pour toi : par où commencer, et à quoi t'attendre.</p>
+    <p>Pour réserver, appelle-nous au 819 434-2143 ou écris-nous.</p>
+    <a href="tel:+18194342143">819 434-2143</a>
+    <a href="mailto:info@fxvsolution.com?subject=Mon%20bilan%20VisBody">Écrire un courriel</a>
+  </section>
+
+  <div class="actions noprint">
+    <button type="button" onclick="window.print()">Enregistrer en PDF</button>
+    <button type="button" onclick="recommencer()">Modifier mes mesures</button>
+  </div>
+  <p class="note">Cette estimation est générale. Elle ne remplace pas l'avis d'un professionnel de la santé.</p>
+</div>
+
+</div></main>
+
+<footer><em>Bâtis qui tu es, le résultat suivra.</em>FxV Solution · 1381, rue King Est, Sherbrooke · 819 434-2143</footer>
+
+<script>
+var ZONES={f:{b:[14,21,25,32],n:['Très faible','Athlétique','En forme','Moyenne','Élevée'],min:8,max:45},
+           h:{b:[6,14,18,25],n:['Très faible','Athlétique','En forme','Moyenne','Élevée'],min:2,max:38}};
+var TXT=['Tu es sous la zone athlétique. Plus bas n\'est pas mieux : un minimum de gras est essentiel au corps.',
+ 'Tu es dans la zone athlétique. L\'enjeu, maintenant, c\'est surtout la masse musculaire et la performance.',
+ 'Tu es dans la zone « en forme ». Une belle base pour travailler la définition et la force.',
+ 'Tu es dans la zone moyenne, celle où se trouvent la plupart des adultes. C\'est aussi là où un bon plan change le plus vite le portrait.',
+ 'Tu es au-dessus de la zone moyenne. Bonne nouvelle : c\'est là où les premiers changements sont souvent les plus rapides et les plus visibles.'];
+function majHanches(){document.getElementById('blocHanches').style.display=document.getElementById('sexe').value==='f'?'block':'none';}
+majHanches();
+function val(id){return parseFloat(document.getElementById(id).value);}
+function calculer(){
+  var err=document.getElementById('err');err.style.display='none';
+  var sexe=document.getElementById('sexe').value,p=val('poids'),pi=parseInt(document.getElementById('pieds').value,10),po=parseInt(document.getElementById('pouces').value||'0',10);
+  var cm=document.querySelector('input[name=u]:checked').value==='cm',k=cm?1/2.54:1;
+  var cou=val('cou')*k,tt=val('taille')*k,ha=val('hanches')*k,h=pi*12+po;
+  if(!(p>=80&&p<=600)||!(pi>=4&&pi<=7)||!(po>=0&&po<=11)){err.textContent='Inscris ton poids (lb) et ta taille (pieds et pouces).';err.style.display='block';return;}
+  if(!(cou>=8&&cou<=30)||!(tt>=20&&tt<=80)||(sexe==='f'&&!(ha>=25&&ha<=80))){err.textContent='Vérifie tes mesures et l\'unité choisie (pouces ou centimètres).';err.style.display='block';return;}
+  var bf;
+  if(sexe==='h'){if(tt<=cou){err.textContent='Ton tour de taille doit être plus grand que ton cou. Vérifie tes mesures.';err.style.display='block';return;}
+    bf=86.010*Math.log10(tt-cou)-70.041*Math.log10(h)+36.76;}
+  else{if(tt+ha<=cou){err.textContent='Vérifie tes mesures.';err.style.display='block';return;}
+    bf=163.205*Math.log10(tt+ha-cou)-97.684*Math.log10(h)-78.387;}
+  bf=Math.max(3,Math.min(60,bf));
+  var r=Math.round(bf*10)/10,prenom=document.getElementById('prenom').value.trim();
+  document.getElementById('titre').textContent=prenom?prenom+', voici ton estimation':'Ton estimation';
+  document.getElementById('pct').textContent=r.toLocaleString('fr-CA')+' %';
+  var gras=Math.round(p*bf/100),maigre=Math.round(p-gras);
+  document.getElementById('gras').textContent=gras+' lb';
+  document.getElementById('maigre').textContent=maigre+' lb';
+  var Z=ZONES[sexe],i=0;while(i<4&&bf>=Z.b[i])i++;
+  document.getElementById('zoneTxt').textContent=TXT[i];
+  document.getElementById('zones').innerHTML=Z.n.map(function(n,j){var lo=j===0?'':Z.b[j-1],hi=j===4?'':Z.b[j]-1;return '<div>'+n+'<br>'+(j===0?'< '+Z.b[0]:j===4?Z.b[3]+'+':lo+'–'+hi)+' %</div>';}).join('');
+  // position du marqueur : chaque zone occupe 1/5 de la barre
+  var edges=[Z.min].concat(Z.b).concat([Z.max]),pos;
+  var x=Math.max(Z.min,Math.min(Z.max,bf));pos=(i+(x-edges[i])/(edges[i+1]-edges[i]))*20;
+  document.getElementById('marker').style.left=Math.max(3,Math.min(97,pos))+'%';
+  // exemple balance
+  var perte=Math.max(5,Math.round(gras*0.15)),gain=Math.max(2,Math.round(perte*0.4));
+  var nouveauPoids=p-perte+gain,nouveauPct=Math.round((gras-perte)/nouveauPoids*1000)/10;
+  document.getElementById('exemple').innerHTML='Imagine que tu perdes <strong>'+perte+' lb de gras</strong> et que tu gagnes <strong>'+gain+' lb de muscle</strong>. La balance n\'afficherait que '+(perte-gain)+' lb de moins, et beaucoup de gens se décourageraient. Pourtant, ton pourcentage de gras passerait d\'environ '+r.toLocaleString('fr-CA')+' % à '+nouveauPct.toLocaleString('fr-CA')+' %, et ça se verrait dans le miroir et dans tes vêtements.';
+  document.getElementById('form').style.display='none';
+  document.getElementById('result').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+}
+function recommencer(){document.getElementById('result').style.display='none';document.getElementById('form').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
