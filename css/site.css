@@ -77,12 +77,13 @@ p { margin: 0; }
 }
 .site-header .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: 72px; }
 .brand img { width: 92px; }
-.nav { display: none; gap: 1.6rem; margin-left: auto; }
+.nav { display: none; gap: 1.25rem; margin-left: auto; }
+.nav a, .site-header .btn { white-space: nowrap; }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: .98rem; }
 .nav a:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
 .site-header .btn { margin-left: auto; min-height: 42px; padding: .55rem 1rem; font-size: .95rem; display: none; }
 @media (min-width: 760px) { .site-header .btn { display: inline-flex; } }
-@media (min-width: 960px) {
+@media (min-width: 1180px) {
   .nav { display: flex; }
   .site-header .btn { margin-left: 0; }
 }
@@ -341,14 +342,14 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-@media (max-width: 959px) {
+@media (max-width: 1179px) {
   .site-header .wrap { flex-wrap: wrap; }
   .site-header .btn { margin-left: auto; }
   .nav.is-open { display: flex; flex-direction: column; gap: 0; width: 100%; order: 10; margin: 0 0 .75rem; border-top: 1px solid var(--line); }
   .nav.is-open a { padding: .9rem .25rem; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
 }
-@media (min-width: 760px) and (max-width: 959px) { .site-header .btn + .menu-btn { margin-left: .5rem; } }
-@media (min-width: 960px) { .menu-btn { display: none; } }
+@media (min-width: 760px) and (max-width: 1179px) { .site-header .btn + .menu-btn { margin-left: .5rem; } }
+@media (min-width: 1180px) { .menu-btn { display: none; } }
 @media (prefers-reduced-motion: reduce) { .menu-btn span { transition: none; } }
 .post-card a { padding: 0; overflow: hidden; }
 .post-card__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
